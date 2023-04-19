@@ -1,5 +1,25 @@
-function findShortestStringRecursive() {
+function findShortestStringRecursive(arr) {
+  // if(arr.length === 1) {
+  //   return arr[0];
+  // }
+  // else {
+  //   return arr[0].length > arr[1].length 
+  //     ? findShortestStringRecursive(arr.slice(1)) 
+  //     : findShortestStringRecursive([...arr.slice(0,1),...arr.slice(2)]);
+  // }
+
+  // cleaner solution
+
+  if(arr.length === 1) {
+    return arr[0];
+  }
+  else {
+    const next = findShortestStringRecursive(arr.slice(1));
+    return arr[0].length > next.length ? next : arr[0];
+  }
 }
+
+
 
 if (require.main === module) {
   console.log("Expecting: 'a'");
